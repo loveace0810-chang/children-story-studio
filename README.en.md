@@ -12,6 +12,14 @@ An open toolkit for developing a child's story idea into a complete story, then 
 
 The toolkit **does not generate illustrations or voices**. The font places Zhuyin beside Chinese characters, but polyphonic readings and tone changes still need manual review. Video captions have one cue per scene; refine their timing before publication.
 
+## Use it with an AI agent
+
+Download the repository and open this folder as the agent's workspace. Agents that read `AGENTS.md` (such as Codex) can follow its pointer to `.agents/skills/story-workflow/SKILL.md`. For other agents, give this instruction explicitly:
+
+> First read `AGENTS.md`, `.agents/skills/story-workflow/SKILL.md`, and `README.en.md`. Help me develop a child's story idea into a complete story for ages 5–7, then plan a 24-page picture book and narrated video. Preserve the child's core plot and author credit. Use `story_studio.py` to create my project. Keep my story, images, and audio under `projects/`; do not add them to the toolkit repository.
+
+Then provide the child's story idea. The agent can help write, plan pages, review Zhuyin, and run the local scripts. Whether it can **make illustrations or synthesize speech directly** depends on the agent's available tools and service access. Without those tools, it can still prepare the story, storyboard, and blank project for you to complete with artwork and recordings. Confirm any online voice provider's data transfer, cost, and license separately.
+
 ## Install
 
 Use Python 3.10 or newer. Download and extract the repository from GitHub with **Code → Download ZIP**, or use `git clone`. Open a terminal in the extracted folder.

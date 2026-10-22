@@ -10,7 +10,7 @@ An open toolkit for developing a child's story idea into a complete story, then 
 2. Use `init` to create a blank 24-page book project. Add your own images and short text, then build separate interior, front-cover, and back-cover PDFs with the bundled Zhuyin font.
 3. Supply your own narration recordings to assemble an MP4 video and SRT subtitles.
 
-The toolkit **does not generate illustrations or voices**. The font places Zhuyin beside Chinese characters, but polyphonic readings and tone changes still need manual review. Video captions have one cue per scene; refine their timing before publication.
+The local layout script **does not call image or voice generation services by itself**; an agent with the relevant tools can help make those assets. The font places Zhuyin beside Chinese characters, but polyphonic readings and tone changes still need manual review. Video captions have one cue per scene; refine their timing before publication.
 
 ## Use it with an AI agent
 
@@ -18,7 +18,7 @@ Download the repository and open this folder as the agent's workspace. Agents th
 
 > First read `AGENTS.md`, `.agents/skills/story-workflow/SKILL.md`, and `README.en.md`. Help me develop a child's story idea into a complete story for ages 5–7, then plan a 24-page picture book and narrated video. Preserve the child's core plot and author credit. Use `story_studio.py` to create my project. Keep my story, images, and audio under `projects/`; do not add them to the toolkit repository.
 
-Then provide the child's story idea. The agent can help write, plan pages, review Zhuyin, and run the local scripts. Whether it can **make illustrations or synthesize speech directly** depends on the agent's available tools and service access. Without those tools, it can still prepare the story, storyboard, and blank project for you to complete with artwork and recordings. Confirm any online voice provider's data transfer, cost, and license separately.
+Then provide the child's story idea. The agent can help write, plan pages, review Zhuyin, and run the local scripts. Whether it can **make illustrations or synthesize speech directly** depends on its tools and service access. With image tools, ask it to establish a consistent character design and style, produce cover, interior, and back-cover illustrations, inspect text-safe areas, and save the art in `images/`. Without image tools, it should provide a page-by-page storyboard and art prompts, then continue once images are supplied. Confirm data transfer, cost, and licenses for any online image or voice service.
 
 ## Install
 
@@ -82,7 +82,7 @@ The output is `projects/my-story/build/pdf/interior.pdf`, `front_cover.pdf`, and
 
 Fill `video_scenes` with each image, MP3 recording, and the words actually spoken. You can record your own voice or use a voice service whose terms permit your intended use. For Mandarin narration, audition natural Taiwan Mandarin voices first. Then run:
 
-An agent can first adapt the story into conversational narration, split it into scenes, and help audition several Taiwan Mandarin voices. With ElevenLabs, use **Text to Speech** to select a voice and model, paste one approved scene, generate and listen, then download the chosen result as MP3. Save clips in order as `audio/scene_00.mp3`, `scene_01.mp3`, and so on. Other voice services work too if they provide audio you may use. An agent with service access and your authorization to transmit the story text can help perform these steps; otherwise it should give you the exact scene scripts and clear instructions. See the official [ElevenLabs Text to Speech guide](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech) and [download instructions](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech).
+An agent can first adapt the story into conversational narration, split it into scenes, and help audition several Taiwan Mandarin voices. The provider is not limited to ElevenLabs; choose according to voice quality, output rights, cost, and your preference. Save approved clips in order as `audio/scene_00.mp3`, `scene_01.mp3`, and so on. An agent with service access and your authorization to transmit the story text can help perform these steps; otherwise it should give you the exact scene scripts and clear instructions. If you choose ElevenLabs, see its [Text to Speech guide](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech) and [download instructions](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech).
 
 ```sh
 python story_studio.py video projects/my-story/project.json

@@ -10,7 +10,7 @@
 2. 用 `init` 建立空白的 24 頁繪本專案。完成每頁插畫與短句後，用附帶的注音字型輸出獨立內頁、封面、封底 PDF。
 3. 自行準備配音音檔，依場景順序組成 MP4 影片與 SRT 字幕。
 
-工具**不會自動生成插畫或配音**。字型可以在漢字右側顯示注音，但多音字和變調仍須人工校對。影片字幕以一個場景為一段，正式上架前應按聲音再細分和調整時間。
+本機排版程式**不會自行呼叫生圖或配音服務**；有相應工具的 agent 可以協助產出圖片與聲音。字型可以在漢字右側顯示注音，但多音字和變調仍須人工校對。影片字幕以一個場景為一段，正式上架前應按聲音再細分和調整時間。
 
 ## 交給 AI agent 使用
 
@@ -18,7 +18,7 @@
 
 > 請先閱讀 `AGENTS.md`、`.agents/skills/story-workflow/SKILL.md` 和 `README.md`。幫我把孩子的故事點子完善成適合 5～7 歲的故事，先給我完整故事，再規劃 24 頁繪本與有聲影片。請保留孩子的核心情節與作者署名。使用 `story_studio.py` 建立我的專案；故事、圖片與聲音都放在 `projects/`，不要加入工具儲存庫。
 
-接著貼上孩子的故事點子。agent 可以協助寫作、安排分頁、檢查注音與執行本機程式；能否**直接畫圖或合成語音**取決於該 agent 是否有相應工具及服務權限。沒有這些工具時，仍可先完成文本、分鏡與空白專案，再由使用者補上插畫和錄音。任何線上配音服務的傳送、費用與授權也需另行確認。
+接著貼上孩子的故事點子。agent 可以協助寫作、安排分頁、檢查注音與執行本機程式；能否**直接畫圖或合成語音**取決於該 agent 是否有相應工具及服務權限。有生圖工具時，請它先固定角色外觀和畫風，再逐頁產生封面、內頁、封底插畫，檢查角色一致性與文字安全區，存入專案的 `images/`。沒有工具時，請它交付逐頁分鏡與生圖提示，取得圖片後再繼續排版。線上生圖或配音服務涉及故事內容傳送、費用與授權時，應先確認。
 
 ## 安裝
 
@@ -82,7 +82,7 @@ python story_studio.py book projects/my-story/project.json
 
 在 `video_scenes` 依序填入每段圖片、MP3 音檔與實際旁白文字。聲音可由本人錄製，或透過你有權使用的配音服務取得；選擇中文語音時，建議先試聽自然的台灣華語聲線。再執行：
 
-若交給 agent 製作，可以請它先把故事改寫成口語旁白、切成場景，再協助挑選幾種台灣華語聲線試聽。使用 ElevenLabs 時，可在 **Text to Speech** 選聲音與模型、貼上每段旁白、生成並試聽，將滿意的結果下載成 MP3，依序存為 `audio/scene_00.mp3`、`scene_01.mp3` 等；其他語音服務也可以，只要取得可使用的音檔。agent 若能操作該服務且你已同意傳送故事文字，可以協助完成；若沒有服務存取權，也應提供逐段文字與具體操作指引。[ElevenLabs 的官方語音製作說明](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech)與[下載說明](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech)可供對照。
+若交給 agent 製作，可以請它先把故事改寫成口語旁白、切成場景，再協助挑選幾種台灣華語聲線試聽。服務不限定 ElevenLabs；請依聲音品質、輸出授權、費用與你的偏好選擇。將滿意的結果依序存為 `audio/scene_00.mp3`、`scene_01.mp3` 等。agent 若能操作該服務且你已同意傳送故事文字，可以協助完成；若沒有服務存取權，也應提供逐段文字與具體操作指引。若選用 ElevenLabs，可參考它的[語音製作說明](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech)與[下載說明](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech)。
 
 ```sh
 python story_studio.py video projects/my-story/project.json

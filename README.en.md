@@ -82,6 +82,8 @@ The output is `projects/my-story/build/pdf/interior.pdf`, `front_cover.pdf`, and
 
 Fill `video_scenes` with each image, MP3 recording, and the words actually spoken. You can record your own voice or use a voice service whose terms permit your intended use. For Mandarin narration, audition natural Taiwan Mandarin voices first. Then run:
 
+An agent can first adapt the story into conversational narration, split it into scenes, and help audition several Taiwan Mandarin voices. With ElevenLabs, use **Text to Speech** to select a voice and model, paste one approved scene, generate and listen, then download the chosen result as MP3. Save clips in order as `audio/scene_00.mp3`, `scene_01.mp3`, and so on. Other voice services work too if they provide audio you may use. An agent with service access and your authorization to transmit the story text can help perform these steps; otherwise it should give you the exact scene scripts and clear instructions. See the official [ElevenLabs Text to Speech guide](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech) and [download instructions](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech).
+
 ```sh
 python story_studio.py video projects/my-story/project.json
 ```

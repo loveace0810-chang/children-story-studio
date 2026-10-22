@@ -82,6 +82,8 @@ python story_studio.py book projects/my-story/project.json
 
 在 `video_scenes` 依序填入每段圖片、MP3 音檔與實際旁白文字。聲音可由本人錄製，或透過你有權使用的配音服務取得；選擇中文語音時，建議先試聽自然的台灣華語聲線。再執行：
 
+若交給 agent 製作，可以請它先把故事改寫成口語旁白、切成場景，再協助挑選幾種台灣華語聲線試聽。使用 ElevenLabs 時，可在 **Text to Speech** 選聲音與模型、貼上每段旁白、生成並試聽，將滿意的結果下載成 MP3，依序存為 `audio/scene_00.mp3`、`scene_01.mp3` 等；其他語音服務也可以，只要取得可使用的音檔。agent 若能操作該服務且你已同意傳送故事文字，可以協助完成；若沒有服務存取權，也應提供逐段文字與具體操作指引。[ElevenLabs 的官方語音製作說明](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech)與[下載說明](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-do-i-download-generated-files-from-text-to-speech)可供對照。
+
 ```sh
 python story_studio.py video projects/my-story/project.json
 ```
